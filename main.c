@@ -21,6 +21,10 @@ typedef enum {
 void executeProgram(uint16_t mem[]);
 
 int main(void) {
+  /*
+   * NOTE: These test cases are shamelessly stolen from the solution, but NONE 
+   * of the implementation details were taken from the solution.
+   */
   // 255 + 3 = 258
   uint16_t mem1[20] = {
       0x01, 0x01, 0x10,  // 0x00: load A 0x10
