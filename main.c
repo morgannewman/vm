@@ -18,7 +18,7 @@ typedef enum {
   REGISTER_2 = 0x02,
 } cpu_register_t;
 
-void executeProgram(uint16_t mem[]);
+void executeProgram(uint8_t mem[]);
 
 int main(void) {
   /*
@@ -26,7 +26,7 @@ int main(void) {
    * of the implementation details were taken from the solution.
    */
   // 255 + 3 = 258
-  uint16_t mem1[20] = {
+  uint8_t mem1[20] = {
       0x01, 0x01, 0x10,  // 0x00: load A 0x10
       0x01, 0x02, 0x12,  // 0x03: load B 0x12
       0x03, 0x01, 0x02,  // 0x06: add A B
@@ -43,7 +43,7 @@ int main(void) {
   assert(mem1[0x0e] == 2 && mem1[0x0f] == 1);
 
   // 256 - 3 = 253
-  uint16_t mem2[20] = {
+  uint8_t mem2[20] = {
       0x01, 0x01, 0x10,  // 0x00: load A 0x10
       0x01, 0x02, 0x12,  // 0x03: load B 0x12
       0x04, 0x01, 0x02,  // 0x06: sub A B
@@ -64,7 +64,7 @@ int main(void) {
   return EXIT_SUCCESS;
 }
 
-void executeProgram(uint16_t mem[]) {
+void executeProgram(uint8_t mem[]) {
   // [program_counter, register_1, register_2]
   uint16_t registers[3] = {0, 0, 0};
 
